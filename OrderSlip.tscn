@@ -57,6 +57,7 @@ text = "#####"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="ColorRect/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 text = "Order: "
 autowrap_mode = 2
