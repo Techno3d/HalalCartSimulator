@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqd0ugaeim5xn"]
+
+[ext_resource type="Texture2D" uid="uid://dan7ultjfvi6o" path="res://FoodAssets/Assembly1 (1).png" id="1_4fomf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fomf"]
+size = Vector2(184, 168)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Rice" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Rice"]
+position = Vector2(340, 564)
+shape = SubResource("RectangleShape2D_4fomf")
+
+[node name="Lamb" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Lamb"]
+
+[node name="Chicken" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Chicken"]
+
+[node name="Lettuce" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Lettuce"]
+
+[node name="Falafel" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Falafel"]
+
+[node name="Pita" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Pita"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(10.125, 10.125)
+texture = ExtResource("1_4fomf")

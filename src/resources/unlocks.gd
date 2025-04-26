@@ -1,9 +1,9 @@
 extends Node
 
-var unlocked_sauces: Array[Order.SauceType] = [Order.SauceType.White]
+var unlocked_sauces: Array[Order.SauceType] = [Order.SauceType.White,      Order.SauceType.Hot, Order.SauceType.Green, Order.SauceType.Barbeque]
 var locked_sauces: Array[Order.SauceType] = [Order.SauceType.Hot, Order.SauceType.Green, Order.SauceType.Barbeque]
 
-var unlocked_soda: Array[Order.SodaType] = [Order.SodaType.Coke]
+var unlocked_soda: Array[Order.SodaType] = [Order.SodaType.Coke,    Order.SodaType.DrPepper, Order.SodaType.Pepsi, Order.SodaType.Sprite]
 var locked_soda: Array[Order.SodaType] = [Order.SodaType.DrPepper, Order.SodaType.Pepsi, Order.SodaType.Sprite]
 
 func unlock_sauce():
