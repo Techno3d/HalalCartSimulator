@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://keinytnho8rg"]
+
+[ext_resource type="Script" uid="uid://c3nx56o13snd7" path="res://Minigames/shawarma_station.gd" id="1_6drii"]
+[ext_resource type="Script" uid="uid://bhgaa1571tpct" path="res://Minigames/shawarma_box.gd" id="2_u3fyx"]
+[ext_resource type="Texture2D" uid="uid://bjp2yrnbw6saf" path="res://Assets/Knife.png" id="3_nn68e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3fyx"]
+bg_color = Color(0.6, 0.144, 0.144, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nn68e"]
+bg_color = Color(0.391907, 0.68, 0.1224, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6drii")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HitBox1" type="Control" parent="TextureRect"]
+anchors_preset = 0
+offset_left = 161.0
+offset_top = 122.0
+offset_right = 381.0
+offset_bottom = 514.0
+mouse_filter = 1
+script = ExtResource("2_u3fyx")
+
+[node name="HitBox2" type="Control" parent="TextureRect"]
+anchors_preset = 0
+offset_left = 418.0
+offset_top = 122.0
+offset_right = 638.0
+offset_bottom = 514.0
+mouse_filter = 1
+script = ExtResource("2_u3fyx")
+type = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 920.0
+offset_top = 617.0
+offset_right = 1151.0
+offset_bottom = 644.0
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_styles/background = SubResource("StyleBoxFlat_u3fyx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nn68e")
+
+[node name="Knife" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(284, 258)
+scale = Vector2(4.65625, 4.65625)
+texture = ExtResource("3_nn68e")
+hframes = 3
+vframes = 6
+frame = 11
