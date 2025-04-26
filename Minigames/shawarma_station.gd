@@ -1,14 +1,14 @@
 extends Control
 
-@onready var knife: Sprite2D = $Knife
-@onready var lamb_label: Label = $HBoxContainer/Lamb/HBoxContainer/VBoxContainer/Amounts
-@onready var chicken_label: Label = $HBoxContainer/Chicken/HBoxContainer/VBoxContainer/Amounts
-@onready var falalfel_label: Label = $HBoxContainer/Falafel/HBoxContainer/VBoxContainer/Amounts
-@onready var falafel_box: Button = $ColorRect/Button
+@onready var knife: Sprite2D = $TextureRect/Knife
+@onready var lamb_label: Label = $TextureRect/HBoxContainer/Lamb/HBoxContainer/VBoxContainer/Amounts
+@onready var chicken_label: Label = $TextureRect/HBoxContainer/Chicken/HBoxContainer/VBoxContainer/Amounts
+@onready var falalfel_label: Label = $TextureRect/HBoxContainer/Falafel/HBoxContainer/VBoxContainer/Amounts
+@onready var falafel_box: Button = $TextureRect/ColorRect2/Button
 @onready var hit_box_3: ShawarmaBox = $TextureRect/HitBox3
-@onready var falafel_timer: Timer = $FalafelTimer
-@onready var progress_bar: ProgressBar = $ProgressBar
-@onready var uncooked_fafafel: Sprite2D = $UncookedFafafel
+@onready var falafel_timer: Timer = $TextureRect/FalafelTimer
+@onready var progress_bar: ProgressBar = $TextureRect/ProgressBar
+@onready var uncooked_fafafel: Sprite2D = $TextureRect/UncookedFafafel
 
 signal back
 

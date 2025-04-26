@@ -243,19 +243,12 @@ text = "Shwarma Station
 visible = false
 
 [node name="Shwarma2" parent="." instance=ExtResource("19_5tuhn")]
-visible = false
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 567.0
-offset_top = 318.0
-offset_right = 567.0
-offset_bottom = 318.0
-grow_horizontal = 1
-grow_vertical = 1
+offset_left = 566.0
+offset_top = 319.0
+offset_right = 566.0
+offset_bottom = 319.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-metadata/_edit_use_anchors_ = true
 
 [connection signal="button_up" from="Control2/CenterContainer4/OkButton" to="." method="_on_button_button_up"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
