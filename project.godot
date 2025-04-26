@@ -18,3 +18,4 @@ config/icon="res://icon.svg"
 [autoload]
 
 Unlocks="*res://src/resources/unlocks.gd"
+ManagementHr="*res://src/ManagementHR.gd"
