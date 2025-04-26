@@ -6,6 +6,8 @@ var conversationStarters = ["Can I have a","One","Could I get a"]
 var activeCustomers = []
 var activeOrders = []
 var currentOrder = 0
+@onready var order_things: HBoxContainer = $Control/OrderThings
+var orderSlipScene: PackedScene = preload("res://OrderSlip.tscn")
 
 
 func _ready():
@@ -21,8 +23,12 @@ func changeCustomer(orderString,order):
 	var currentCustomer = customers[randi() % customers.size()]
 	$Control2.show()
 	$Control3.hide()
-	activeCustomers.push_back(currentCustomer)
-	activeOrders.push_back(order)
+	ManagementHr.activeCustomers.push_back(currentCustomer)
+	ManagementHr.activeOrders.push_back(order)
+	var slip: OrderSlip = orderSlipScene.instantiate()
+	order_things.add_child(slip)
+	slip.update_text(ManagementHr.activeCustomers.size()-1, orderString)
+	
 	$Control2/CenterContainer2/RandomStarter.text = conversationStarters[randi() % conversationStarters.size()]
 	$Control2/CenterContainer3/Order.text = orderString
 	$Control/CenterContainer/AnimatedSprite2D.animation = currentCustomer

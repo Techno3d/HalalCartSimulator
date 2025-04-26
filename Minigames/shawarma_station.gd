@@ -8,13 +8,18 @@ extends Control
 @onready var hit_box_3: ShawarmaBox = $TextureRect/HitBox3
 @onready var falafel_timer: Timer = $FalafelTimer
 @onready var progress_bar: ProgressBar = $ProgressBar
+@onready var uncooked_fafafel: Sprite2D = $UncookedFafafel
 
 func _ready() -> void:
 	falafel_box.pressed.connect(func(): 
+		uncooked_fafafel.show()
 		falafel_timer.start()
 		falafel_timer.timeout.connect(func():
 				hit_box_3.is_falalfel_done = true
-				get_tree().create_timer(4).timeout.connect(func(): hit_box_3.burn())
+				get_tree().create_timer(4).timeout.connect(func():
+					hit_box_3.burn()
+					uncooked_fafafel.hide()
+				)
 		)
 	)
 

@@ -116,6 +116,13 @@ animation = &"Guy4"
 frame = 6
 frame_progress = 0.0263187
 
+[node name="OrderThings" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 111.0
+offset_right = 889.0
+offset_bottom = 151.0
+
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -225,6 +232,7 @@ text = "Shwarma Station
 "
 
 [node name="Cutting" parent="." instance=ExtResource("18_kjvhd")]
+visible = false
 
 [connection signal="button_up" from="Control2/CenterContainer4/OkButton" to="." method="_on_button_button_up"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]

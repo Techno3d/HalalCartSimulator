@@ -31,5 +31,5 @@ func _init(p_base: Base, p_meat_type: MeatType, p_vegies: bool, p_sauces: Array[
 
 enum Base {RICE, PITA}
 enum SodaType {Coke, DrPepper, Pepsi, Sprite}
-enum MeatType {Lamb, Chicken, Combo, Falafel}
+enum MeatType {Lamb, Chicken, Falafel}
 enum SauceType {White, Hot, Green, Barbeque}
