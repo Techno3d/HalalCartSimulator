@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://quy8dwx0vqhd"]
+[gd_scene load_steps=22 format=3 uid="uid://quy8dwx0vqhd"]
 
 [ext_resource type="Script" uid="uid://c87h1eewiw0io" path="res://main.gd" id="1_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://clfjixnhbyl3a" path="res://Assets/Empty.png" id="1_r0du0"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://esaeika5b1yr" path="res://Assets/Guy4F7.png" id="16_bg4s2"]
 [ext_resource type="PackedScene" uid="uid://ijkpd7ld8h5a" path="res://CuttingBoard.tscn" id="18_kjvhd"]
 [ext_resource type="PackedScene" uid="uid://keinytnho8rg" path="res://Minigames/ShawarmaStation.tscn" id="19_5tuhn"]
+[ext_resource type="PackedScene" uid="uid://cqd0ugaeim5xn" path="res://Assembly.tscn" id="20_2gh4u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3dxm6"]
 animations = [{
@@ -243,7 +244,12 @@ layout_mode = 2
 text = "Shwarma Station
 "
 
+[node name="Assembly" parent="." instance=ExtResource("20_2gh4u")]
+
+[connection signal="back" from="Cutting" to="." method="_on_cutting_back"]
+[connection signal="back" from="Shwarma" to="." method="_on_shwarma_back"]
 [connection signal="button_up" from="Control2/CenterContainer4/OkButton" to="." method="_on_button_button_up"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
 [connection signal="button_up" from="Control3/CenterContainer/Cutting" to="." method="_on_cutting_button_up"]
 [connection signal="button_up" from="Control3/CenterContainer3/ShwarmaStation" to="." method="_on_shwarma_station_button_up"]
+[connection signal="submit" from="Assembly" to="." method="_on_assembly_submit"]

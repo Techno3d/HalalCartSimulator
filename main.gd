@@ -1,8 +1,8 @@
 extends Node2D
 var customers = ["Guy1","Guy2","Guy3","Guy4"]
 var conversationStarters = ["Can I have a","One","Could I get a"]
-@export var minCustomerTime = 3
-@export var maxCustomerTimer = 4
+@export var minCustomerTime = 30
+@export var maxCustomerTimer = 45
 var activeCustomers = []
 var activeOrders = []
 var currentOrder = 0
@@ -16,7 +16,7 @@ signal back
 func _ready():
 	randomize()
 	$Control/CenterContainer/AnimatedSprite2D.play("Default")
-	$CustomerTimer.start(randf_range(minCustomerTime,maxCustomerTimer))
+	$CustomerTimer.start(5)
 	$Control2.hide()
 
 func _process(delta):
@@ -33,6 +33,11 @@ func changeCustomer(orderString,order):
 	var slip: OrderSlip = orderSlipScene.instantiate()
 	order_things.add_child(slip)
 	slip.update_text(ManagementHr.activeCustomers.size()-1, orderString, order)
+	slip.button.pressed.connect(func():
+		assembly()
+		Unlocks.currently_selected = slip.order
+		Unlocks.idx = slip.order_num
+	)
 	#slip.scale = Vector2(0.6, 0.6)
 	
 	$Control2/CenterContainer2/RandomStarter.text = conversationStarters[randi() % conversationStarters.size()]
@@ -45,6 +50,12 @@ func _on_customer_timer_timeout() -> void:
 	order = Unlocks.random_order()
 	changeNeeded=true
 
+func assembly():
+	$Control.hide()
+	$Control3.hide()
+	$Assembly.show()
+	assembly
+	
 
 func _on_button_button_up() -> void:
 	$CustomerTimer.start(randf_range(minCustomerTime,maxCustomerTimer))
@@ -65,6 +76,7 @@ func _on_cutting_back() -> void:
 
 
 func _on_shwarma_back() -> void:
+	print("AAA")
 	$Control.show()
 	$Control3.show()
 	$Shwarma.hide()
@@ -74,3 +86,10 @@ func _on_shwarma_station_button_up() -> void:
 	$Control.hide()
 	$Control3.hide()
 	$Shwarma.show()
+
+
+func _on_assembly_submit() -> void:
+	$Assembly.hide()
+	$Control.show()
+	$Control3.show()
+	

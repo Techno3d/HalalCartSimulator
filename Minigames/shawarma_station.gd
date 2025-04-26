@@ -27,7 +27,7 @@ func _ready() -> void:
 	)
 
 func _process(delta: float) -> void:
-	knife.position = get_global_mouse_position()
+	knife.position = get_global_mouse_position() + Vector2(-250,20)
 	lamb_label.text = "%.2f oz" % [ManagementHr.oz_of_lamb]
 	chicken_label.text = "%.2f oz" % [ManagementHr.oz_of_chicken]
 	falalfel_label.text = "%.2f oz" % [ManagementHr.oz_of_falalfel]
@@ -36,3 +36,4 @@ func _process(delta: float) -> void:
 
 func _on_back_button_up() -> void:
 	back.emit()
+	print("Pressed")

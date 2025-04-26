@@ -6,6 +6,9 @@ var locked_sauces: Array[Order.SauceType] = [Order.SauceType.Hot, Order.SauceTyp
 var unlocked_soda: Array[Order.SodaType] = [Order.SodaType.Coke,    Order.SodaType.DrPepper, Order.SodaType.Pepsi, Order.SodaType.Sprite]
 var locked_soda: Array[Order.SodaType] = [Order.SodaType.DrPepper, Order.SodaType.Pepsi, Order.SodaType.Sprite]
 
+var currently_selected: Order
+var idx: int
+
 func unlock_sauce():
 	unlocked_sauces.push_back(locked_sauces.pop_front())
 	

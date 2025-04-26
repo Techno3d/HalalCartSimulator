@@ -1,9 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqd0ugaeim5xn"]
+[gd_scene load_steps=9 format=3 uid="uid://cqd0ugaeim5xn"]
 
 [ext_resource type="Texture2D" uid="uid://dan7ultjfvi6o" path="res://FoodAssets/Assembly1 (1).png" id="1_4fomf"]
+[ext_resource type="Script" uid="uid://behy8xytv2qg1" path="res://assembly.gd" id="1_mt64p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4fomf"]
 size = Vector2(184, 168)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mt64p"]
+size = Vector2(168, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvmgg"]
+size = Vector2(162, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c710"]
+size = Vector2(178, 186)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbqby"]
+size = Vector2(186, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh4mf"]
+size = Vector2(138, 194)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,6 +28,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mt64p")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -24,25 +41,61 @@ shape = SubResource("RectangleShape2D_4fomf")
 [node name="Lamb" type="Area2D" parent="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Lamb"]
+position = Vector2(492, 64)
+shape = SubResource("RectangleShape2D_mt64p")
 
 [node name="Chicken" type="Area2D" parent="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Chicken"]
+position = Vector2(327, 63)
+shape = SubResource("RectangleShape2D_qvmgg")
 
 [node name="Lettuce" type="Area2D" parent="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Lettuce"]
+position = Vector2(815, 563)
+shape = SubResource("RectangleShape2D_5c710")
 
 [node name="Falafel" type="Area2D" parent="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Falafel"]
+position = Vector2(835, 63)
+shape = SubResource("RectangleShape2D_rbqby")
 
 [node name="Pita" type="Area2D" parent="Node2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Pita"]
+position = Vector2(307, 297)
+shape = SubResource("RectangleShape2D_qh4mf")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 texture_filter = 1
 position = Vector2(576, 324)
 scale = Vector2(10.125, 10.125)
 texture = ExtResource("1_4fomf")
+
+[node name="Chicken2" type="Sprite2D" parent="Node2D"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 496.0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Submit" type="Button" parent="CenterContainer"]
+layout_mode = 2
+text = "Submit"
+
+[connection signal="mouse_entered" from="Node2D/Rice" to="." method="_on_rice_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Rice" to="." method="_on_rice_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/Lamb" to="." method="_on_lamb_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Lamb" to="." method="_on_lamb_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/Chicken" to="." method="_on_chicken_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Chicken" to="." method="_on_chicken_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/Lettuce" to="." method="_on_lettuce_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Lettuce" to="." method="_on_lettuce_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/Falafel" to="." method="_on_falafel_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Falafel" to="." method="_on_falafel_mouse_exited"]
+[connection signal="mouse_entered" from="Node2D/Pita" to="." method="_on_pita_mouse_entered"]
+[connection signal="mouse_exited" from="Node2D/Pita" to="." method="_on_pita_mouse_exited"]
+[connection signal="button_up" from="CenterContainer/Submit" to="." method="_on_submit_button_up"]

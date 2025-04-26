@@ -6,6 +6,7 @@ class_name OrderSlip
 @onready var h_box_container: HBoxContainer = $ColorRect/HBoxContainer
 var order: Order
 var order_num: int
+@onready var button: Button = $ColorRect/Button
 
 func update_text(order_number: int, order_text, p_order: Order):
 	orderNumber.text = str(order_number)
