@@ -104,6 +104,10 @@ visible = false
 
 [node name="Shwarma" parent="." instance=ExtResource("19_5tuhn")]
 visible = false
+offset_left = 566.0
+offset_top = 319.0
+offset_right = 566.0
+offset_bottom = 319.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -238,17 +242,6 @@ mouse_filter = 2
 layout_mode = 2
 text = "Shwarma Station
 "
-
-[node name="Cutting2" parent="." instance=ExtResource("18_kjvhd")]
-visible = false
-
-[node name="Shwarma2" parent="." instance=ExtResource("19_5tuhn")]
-offset_left = 566.0
-offset_top = 319.0
-offset_right = 566.0
-offset_bottom = 319.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [connection signal="button_up" from="Control2/CenterContainer4/OkButton" to="." method="_on_button_button_up"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
