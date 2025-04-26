@@ -6,7 +6,7 @@ var is_falalfel_done: bool = false
 @export var type: int = 0
 
 func _input(event):
-	if event is InputEventMouseButton and is_pressed and event.is_pressed():
+	if event is InputEventMouseButton and is_pressed and event.is_pressed() and visible:
 		if type == 0:
 			ManagementHr.oz_of_lamb += 0.3
 			#print(ManagementHr.oz_of_lamb)

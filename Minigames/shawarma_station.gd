@@ -11,6 +11,7 @@ extends Control
 @onready var uncooked_fafafel: Sprite2D = $UncookedFafafel
 
 func _ready() -> void:
+	hide()
 	falafel_box.pressed.connect(func(): 
 		uncooked_fafafel.show()
 		falafel_timer.start()

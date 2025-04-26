@@ -9,6 +9,7 @@ var currentOrder = 0
 @onready var order_things: HBoxContainer = $Control/OrderThings
 var orderSlipScene: PackedScene = preload("res://OrderSlip.tscn")
 
+signal back
 
 func _ready():
 	randomize()
