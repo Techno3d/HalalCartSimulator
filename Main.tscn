@@ -127,12 +127,28 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 536.0
 
-[node name="Button" type="Button" parent="Control2/CenterContainer4"]
+[node name="OkButton" type="Button" parent="Control2/CenterContainer4"]
 layout_mode = 2
 text = "OK!"
 
 [node name="CustomerTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="button_up" from="Control2/CenterContainer4/Button" to="." method="_on_button_button_up"]
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer3" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterContainer4" type="CenterContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="button_up" from="Control2/CenterContainer4/OkButton" to="." method="_on_button_button_up"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]

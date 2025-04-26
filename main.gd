@@ -1,8 +1,11 @@
 extends Node2D
 var customers = ["Guy1","Guy2","Guy3"]
 var conversationStarters = ["Can I have a","One","Could I get a"]
-@export var minCustomerTime = 30
-@export var maxCustomerTimer = 45
+@export var minCustomerTime = 3
+@export var maxCustomerTimer = 4
+var activeCustomers = []
+var activeOrders = []
+var currentOrder = 0
 
 
 func _ready():
@@ -14,16 +17,20 @@ func _ready():
 func _process(delta):
 	pass
 
-func changeCustomer(order):
+func changeCustomer(orderString,order):
+	var currentCustomer = customers[randi() % customers.size()]
 	$Control2.show()
+	activeCustomers.push_back(currentCustomer)
+	activeOrders.push_back(order)
 	$Control2/CenterContainer2/RandomStarter.text = conversationStarters[randi() % conversationStarters.size()]
-	$Control2/CenterContainer3/Order.text = order
-	$Control/CenterContainer/AnimatedSprite2D.animation = customers[randi() % customers.size()]
+	$Control2/CenterContainer3/Order.text = orderString
+	$Control/CenterContainer/AnimatedSprite2D.animation = currentCustomer
 	$Control/CenterContainer/AnimatedSprite2D.play()
-
+	print(activeCustomers,activeOrders)
 
 func _on_customer_timer_timeout() -> void:
-	changeCustomer("Amogus")
+	var order = Unlocks.random_order()
+	changeCustomer(order.text(),order)
 
 
 func _on_button_button_up() -> void:
