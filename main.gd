@@ -28,7 +28,7 @@ func changeCustomer(orderString,order):
 	ManagementHr.activeOrders.push_back(order)
 	var slip: OrderSlip = orderSlipScene.instantiate()
 	order_things.add_child(slip)
-	slip.update_text(ManagementHr.activeCustomers.size()-1, orderString)
+	slip.update_text(ManagementHr.activeCustomers.size()-1, orderString, order)
 	#slip.scale = Vector2(0.6, 0.6)
 	
 	$Control2/CenterContainer2/RandomStarter.text = conversationStarters[randi() % conversationStarters.size()]
@@ -58,3 +58,14 @@ func _on_cutting_button_up() -> void:
 func _on_cutting_back() -> void:
 	$Control.show()
 	$Control3.show()
+
+
+func _on_shwarma_back() -> void:
+	$Control.show()
+	$Control3.show()
+
+
+func _on_shwarma_station_button_up() -> void:
+	$Control.hide()
+	$Control3.hide()
+	$Shwarma.show()

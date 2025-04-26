@@ -10,6 +10,8 @@ extends Control
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var uncooked_fafafel: Sprite2D = $UncookedFafafel
 
+signal back
+
 func _ready() -> void:
 	hide()
 	falafel_box.pressed.connect(func(): 
