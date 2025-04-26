@@ -1,5 +1,5 @@
 extends Node2D
-var customers = ["Guy1","Guy2","Guy3"]
+var customers = ["Guy1","Guy2","Guy3","Guy4"]
 var conversationStarters = ["Can I have a","One","Could I get a"]
 @export var minCustomerTime = 3
 @export var maxCustomerTimer = 4
@@ -20,6 +20,7 @@ func _process(delta):
 func changeCustomer(orderString,order):
 	var currentCustomer = customers[randi() % customers.size()]
 	$Control2.show()
+	$Control3.hide()
 	activeCustomers.push_back(currentCustomer)
 	activeOrders.push_back(order)
 	$Control2/CenterContainer2/RandomStarter.text = conversationStarters[randi() % conversationStarters.size()]
@@ -37,3 +38,4 @@ func _on_button_button_up() -> void:
 	$CustomerTimer.start(randf_range(minCustomerTime,maxCustomerTimer))
 	$Control/CenterContainer/AnimatedSprite2D.play("Default")
 	$Control2.hide()
+	$Control3.show()

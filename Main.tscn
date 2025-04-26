@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://quy8dwx0vqhd"]
+[gd_scene load_steps=19 format=3 uid="uid://quy8dwx0vqhd"]
 
 [ext_resource type="Script" uid="uid://c87h1eewiw0io" path="res://main.gd" id="1_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://clfjixnhbyl3a" path="res://Assets/Empty.png" id="1_r0du0"]
@@ -9,7 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://cie1kuckyyn2r" path="res://Assets/Guy3.png" id="7_20pc6"]
 [ext_resource type="Texture2D" uid="uid://bgy1aktclqlmt" path="res://Assets/Guy3F2 (1).png" id="8_5vvyt"]
 [ext_resource type="Texture2D" uid="uid://1vuaidqhhff6" path="res://Assets/Guy3F3.png" id="9_c6i3y"]
+[ext_resource type="Texture2D" uid="uid://dn54pjavkidca" path="res://Assets/Guy4.png" id="10_sc1dx"]
 [ext_resource type="Texture2D" uid="uid://qmtme2oamv3o" path="res://Assets/TXTBOX.png" id="10_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://buihfds7qj5ks" path="res://Assets/Guy4F2.png" id="11_kjvhd"]
+[ext_resource type="Texture2D" uid="uid://0p7uhkam1rkw" path="res://Assets/Guy4F3.png" id="12_5tuhn"]
+[ext_resource type="Texture2D" uid="uid://b7cfxojw0l2mi" path="res://Assets/Guy4F4.png" id="13_2gh4u"]
+[ext_resource type="Texture2D" uid="uid://d30kivlmmk0lj" path="res://Assets/Guy4F5.png" id="14_devvj"]
+[ext_resource type="Texture2D" uid="uid://bx7xosr5xljx6" path="res://Assets/Guy4F6.png" id="15_3b0ty"]
+[ext_resource type="Texture2D" uid="uid://esaeika5b1yr" path="res://Assets/Guy4F7.png" id="16_bg4s2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3dxm6"]
 animations = [{
@@ -56,6 +63,35 @@ animations = [{
 "loop": true,
 "name": &"Guy3",
 "speed": 1.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_sc1dx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kjvhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5tuhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2gh4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sc1dx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_devvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3b0ty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_bg4s2")
+}],
+"loop": true,
+"name": &"Guy4",
+"speed": 8.0
 }]
 
 [node name="Cart" type="Node2D"]
@@ -75,8 +111,9 @@ texture_filter = 1
 position = Vector2(576, 324)
 scale = Vector2(10.125, 10.125)
 sprite_frames = SubResource("SpriteFrames_3dxm6")
-animation = &"Guy3"
-frame_progress = 0.72935
+animation = &"Guy4"
+frame = 6
+frame_progress = 0.0263187
 
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3
@@ -134,21 +171,46 @@ text = "OK!"
 [node name="CustomerTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Control3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
 
-[node name="CenterContainer2" type="CenterContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CenterContainer" type="CenterContainer" parent="Control3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 456.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="CenterContainer3" type="CenterContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="MenuBar" type="MenuBar" parent="Control3/CenterContainer"]
+custom_minimum_size = Vector2(600, 40)
+layout_mode = 2
 
-[node name="CenterContainer4" type="CenterContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="PopupMenu" type="PopupMenu" parent="Control3/CenterContainer/MenuBar"]
+title = "Cook"
+item_count = 2
+item_0/text = "Fry"
+item_0/id = 0
+item_1/id = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="Control3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 552.0
+offset_top = 456.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Serve" type="Button" parent="Control3/CenterContainer2"]
+layout_mode = 2
+text = "Serve"
 
 [connection signal="button_up" from="Control2/CenterContainer4/OkButton" to="." method="_on_button_button_up"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
