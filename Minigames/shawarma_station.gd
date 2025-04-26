@@ -13,7 +13,7 @@ extends Control
 signal back
 
 func _ready() -> void:
-	hide()
+	#hide()
 	falafel_box.pressed.connect(func(): 
 		uncooked_fafafel.show()
 		falafel_timer.start()
