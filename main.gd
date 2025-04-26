@@ -39,3 +39,14 @@ func _on_button_button_up() -> void:
 	$Control/CenterContainer/AnimatedSprite2D.play("Default")
 	$Control2.hide()
 	$Control3.show()
+
+
+func _on_cutting_button_up() -> void:
+	$Control.hide()
+	$Control3.hide()
+	$Cutting.show()
+
+
+func _on_cutting_back() -> void:
+	$Control.show()
+	$Control3.show()

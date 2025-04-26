@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://quy8dwx0vqhd"]
+[gd_scene load_steps=20 format=3 uid="uid://quy8dwx0vqhd"]
 
 [ext_resource type="Script" uid="uid://c87h1eewiw0io" path="res://main.gd" id="1_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://clfjixnhbyl3a" path="res://Assets/Empty.png" id="1_r0du0"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://d30kivlmmk0lj" path="res://Assets/Guy4F5.png" id="14_devvj"]
 [ext_resource type="Texture2D" uid="uid://bx7xosr5xljx6" path="res://Assets/Guy4F6.png" id="15_3b0ty"]
 [ext_resource type="Texture2D" uid="uid://esaeika5b1yr" path="res://Assets/Guy4F7.png" id="16_bg4s2"]
+[ext_resource type="PackedScene" uid="uid://ijkpd7ld8h5a" path="res://CuttingBoard.tscn" id="18_kjvhd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3dxm6"]
 animations = [{
@@ -181,36 +182,51 @@ mouse_filter = 2
 [node name="CenterContainer" type="CenterContainer" parent="Control3"]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.034
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 456.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="MenuBar" type="MenuBar" parent="Control3/CenterContainer"]
-custom_minimum_size = Vector2(600, 40)
+[node name="Cutting" type="Button" parent="Control3/CenterContainer"]
 layout_mode = 2
-
-[node name="PopupMenu" type="PopupMenu" parent="Control3/CenterContainer/MenuBar"]
-title = "Cook"
-item_count = 2
-item_0/text = "Fry"
-item_0/id = 0
-item_1/id = 1
+text = "Cutting Board"
 
 [node name="CenterContainer2" type="CenterContainer" parent="Control3"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 552.0
+offset_left = 472.0
 offset_top = 456.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Serve" type="Button" parent="Control3/CenterContainer2"]
 layout_mode = 2
 text = "Serve"
 
+[node name="CenterContainer3" type="CenterContainer" parent="Control3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.602
+anchor_bottom = 1.0
+offset_top = 456.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ShwarmaStation" type="Button" parent="Control3/CenterContainer3"]
+layout_mode = 2
+text = "Shwarma Station
+"
+
+[node name="Cutting" parent="." instance=ExtResource("18_kjvhd")]
+
 [connection signal="button_up" from="Control2/CenterContainer4/OkButton" to="." method="_on_button_button_up"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
+[connection signal="button_up" from="Control3/CenterContainer/Cutting" to="." method="_on_cutting_button_up"]
+[connection signal="back" from="Cutting" to="." method="_on_cutting_back"]

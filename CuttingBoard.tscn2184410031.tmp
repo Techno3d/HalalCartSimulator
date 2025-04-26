@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://ijkpd7ld8h5a"]
+
+[ext_resource type="Script" uid="uid://da7faguj0sobx" path="res://cutting_board.gd" id="1_br82t"]
+[ext_resource type="Texture2D" uid="uid://cv28mebwpjhjf" path="res://Assets/CutLettuce.png" id="1_nqhhj"]
+[ext_resource type="Texture2D" uid="uid://cbjpdigrbn3pn" path="res://Assets/CuttingBoardEmpty.png" id="2_br82t"]
+[ext_resource type="Texture2D" uid="uid://isw5xfi6tfti" path="res://Assets/CuttingBoardLettuce.png" id="3_x2ebx"]
+[ext_resource type="Texture2D" uid="uid://bjp2yrnbw6saf" path="res://Assets/Knife.png" id="5_x2ebx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3bre"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_br82t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x2ebx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_nqhhj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.75
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_br82t"]
+radius = 72.0
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_br82t")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CutLettuce" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CutLettuce"]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(10.125, 10.125)
+sprite_frames = SubResource("SpriteFrames_w3bre")
+frame = 1
+frame_progress = 0.496126
+
+[node name="Area2D" type="Area2D" parent="CutLettuce"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CutLettuce/Area2D"]
+position = Vector2(584, 544)
+shape = SubResource("CircleShape2D_br82t")
+
+[node name="ReserveLettuce" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="ReserveLettuce"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReserveLettuce/Area2D"]
+position = Vector2(328, 536)
+shape = SubResource("CircleShape2D_br82t")
+
+[node name="Knife" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(284, 258)
+scale = Vector2(4.65625, 4.65625)
+texture = ExtResource("5_x2ebx")
+hframes = 3
+vframes = 6
+frame = 11
+
+[node name="Area2D" type="Area2D" parent="Knife"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Knife/Area2D"]
+polygon = PackedVector2Array(4.2953, -0.429531, 4.2953, -0.429531, 0.859058, 3.00671, -4.2953, 3.00671, -6.01342, 1.28859, -7.73154, 1.28859, -9.44967, 1.28859, -11.1678, -0.429531, -14.604, -3.86577, -14.604, -5.58389, 11.1678, -5.58389, 11.1678, -2.14765, 4.2953, -2.14765)
