@@ -7,7 +7,22 @@ class_name Order
 @export var sauces: Array[int]
 @export var soda: SodaType
 
+func text() -> String:
+	var ret: String = "";
+	ret += MeatType.keys()[meat_type]
+	
+	if(base == Base.RICE):
+		ret += " over rice "
+	else:
+		ret += " gyro "
+	if(vegies): 
+		ret += "with salad " 
+	else:
+		ret += "without salad "
+	ret += "and a " + SodaType.keys()[soda]
+	return ret
+
 enum Base {RICE, PITA}
 enum SodaType {Coke, DrPepper, Fanta, Sprite}
 enum MeatType {Lamb, Chicken, Combo, Falafel}
-enum SauceType {WHITE, HOT, GREEN, DRPEPPER}
+enum SauceType {White, Hot, Green, Barbeque}
