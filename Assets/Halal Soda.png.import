@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvpn8eqremcvn"
-path="res://.godot/imported/Falafel Bag Open.png-b9173e5ee2633e727bf7611b2595c7d0.ctex"
+uid="uid://dw1pgxyu7be42"
+path="res://.godot/imported/Halal Soda.png-3310518c4f9f6324916f4f2d6ba41115.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Falafel Bag Open.png"
-dest_files=["res://.godot/imported/Falafel Bag Open.png-b9173e5ee2633e727bf7611b2595c7d0.ctex"]
+source_file="res://Assets/Halal Soda.png"
+dest_files=["res://.godot/imported/Halal Soda.png-3310518c4f9f6324916f4f2d6ba41115.ctex"]
 
 [params]
 
