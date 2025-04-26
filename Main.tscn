@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://quy8dwx0vqhd"]
+[gd_scene load_steps=21 format=3 uid="uid://quy8dwx0vqhd"]
 
 [ext_resource type="Script" uid="uid://c87h1eewiw0io" path="res://main.gd" id="1_cm0pq"]
 [ext_resource type="Texture2D" uid="uid://clfjixnhbyl3a" path="res://Assets/Empty.png" id="1_r0du0"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bx7xosr5xljx6" path="res://Assets/Guy4F6.png" id="15_3b0ty"]
 [ext_resource type="Texture2D" uid="uid://esaeika5b1yr" path="res://Assets/Guy4F7.png" id="16_bg4s2"]
 [ext_resource type="PackedScene" uid="uid://ijkpd7ld8h5a" path="res://CuttingBoard.tscn" id="18_kjvhd"]
+[ext_resource type="PackedScene" uid="uid://keinytnho8rg" path="res://Minigames/ShawarmaStation.tscn" id="19_5tuhn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3dxm6"]
 animations = [{
@@ -225,6 +226,8 @@ text = "Shwarma Station
 "
 
 [node name="Cutting" parent="." instance=ExtResource("18_kjvhd")]
+
+[node name="Shwarma" parent="." instance=ExtResource("19_5tuhn")]
 
 [connection signal="button_up" from="Control2/CenterContainer4/OkButton" to="." method="_on_button_button_up"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
