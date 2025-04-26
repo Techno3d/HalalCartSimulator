@@ -1,0 +1,138 @@
+[gd_scene load_steps=12 format=3 uid="uid://quy8dwx0vqhd"]
+
+[ext_resource type="Script" uid="uid://c87h1eewiw0io" path="res://main.gd" id="1_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://clfjixnhbyl3a" path="res://Assets/Empty.png" id="1_r0du0"]
+[ext_resource type="Texture2D" uid="uid://ghl1t3u8bny3" path="res://Assets/Guy1.png" id="2_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://dbxgfvodibcs5" path="res://Assets/Guy1F2.png" id="3_fos0i"]
+[ext_resource type="Texture2D" uid="uid://dvg6kukm5ca7d" path="res://Assets/Guy2.png" id="5_03owx"]
+[ext_resource type="Texture2D" uid="uid://bka5nd5gyocje" path="res://Assets/Guy2F2.png" id="6_wkp8b"]
+[ext_resource type="Texture2D" uid="uid://cie1kuckyyn2r" path="res://Assets/Guy3.png" id="7_20pc6"]
+[ext_resource type="Texture2D" uid="uid://bgy1aktclqlmt" path="res://Assets/Guy3F2 (1).png" id="8_5vvyt"]
+[ext_resource type="Texture2D" uid="uid://1vuaidqhhff6" path="res://Assets/Guy3F3.png" id="9_c6i3y"]
+[ext_resource type="Texture2D" uid="uid://qmtme2oamv3o" path="res://Assets/TXTBOX.png" id="10_wkp8b"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3dxm6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r0du0")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cm0pq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fos0i")
+}],
+"loop": true,
+"name": &"Guy1",
+"speed": 0.75
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_03owx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wkp8b")
+}],
+"loop": true,
+"name": &"Guy2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_20pc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5vvyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c6i3y")
+}],
+"loop": true,
+"name": &"Guy3",
+"speed": 1.5
+}]
+
+[node name="Cart" type="Node2D"]
+script = ExtResource("1_cm0pq")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/CenterContainer"]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(10.125, 10.125)
+sprite_frames = SubResource("SpriteFrames_3dxm6")
+animation = &"Guy3"
+frame_progress = 0.72935
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Control2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control2/CenterContainer"]
+modulate = Color(1, 1, 1, 0.431373)
+texture_filter = 1
+custom_minimum_size = Vector2(600, 250)
+layout_mode = 2
+texture = ExtResource("10_wkp8b")
+
+[node name="CenterContainer2" type="CenterContainer" parent="Control2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -272.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RandomStarter" type="Label" parent="Control2/CenterContainer2"]
+layout_mode = 2
+text = "[PLACEHOLDER]"
+
+[node name="CenterContainer3" type="CenterContainer" parent="Control2"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 456.0
+
+[node name="Order" type="Label" parent="Control2/CenterContainer3"]
+layout_mode = 2
+text = "[PLACEHOLDER]"
+
+[node name="CenterContainer4" type="CenterContainer" parent="Control2"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 536.0
+
+[node name="Button" type="Button" parent="Control2/CenterContainer4"]
+layout_mode = 2
+text = "OK!"
+
+[node name="CustomerTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="button_up" from="Control2/CenterContainer4/Button" to="." method="_on_button_button_up"]
+[connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
