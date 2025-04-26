@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dxopadp5fq75n" path="res://Assets/SharawmaSceneV1.png" id="2_7kk5t"]
 [ext_resource type="Script" uid="uid://bhgaa1571tpct" path="res://Minigames/shawarma_box.gd" id="2_u3fyx"]
 [ext_resource type="Texture2D" uid="uid://bjp2yrnbw6saf" path="res://Assets/Knife.png" id="3_nn68e"]
-[ext_resource type="Texture2D" uid="uid://btk7kdfulnjhp" path="res://Assets/Falafel Bag.png" id="5_57er2"]
+[ext_resource type="Texture2D" uid="uid://dibmy1xo7mll6" path="res://Assets/Falafel Bag.png" id="5_57er2"]
 [ext_resource type="Texture2D" uid="uid://c4e4new7h25dc" path="res://Assets/Uncooked Fafafel.png" id="6_2l53t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3fyx"]

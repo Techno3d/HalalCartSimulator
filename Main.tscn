@@ -121,8 +121,9 @@ frame_progress = 0.0263187
 layout_mode = 0
 offset_left = 263.0
 offset_top = 111.0
-offset_right = 889.0
+offset_right = 1517.0
 offset_bottom = 151.0
+scale = Vector2(0.5, 0.5)
 
 [node name="Control2" type="Control" parent="."]
 layout_mode = 3

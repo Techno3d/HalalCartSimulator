@@ -28,6 +28,7 @@ func changeCustomer(orderString,order):
 	var slip: OrderSlip = orderSlipScene.instantiate()
 	order_things.add_child(slip)
 	slip.update_text(ManagementHr.activeCustomers.size()-1, orderString)
+	#slip.scale = Vector2(0.6, 0.6)
 	
 	$Control2/CenterContainer2/RandomStarter.text = conversationStarters[randi() % conversationStarters.size()]
 	$Control2/CenterContainer3/Order.text = orderString
