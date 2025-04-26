@@ -8,6 +8,8 @@ var activeOrders = []
 var currentOrder = 0
 @onready var order_things: HBoxContainer = $Control/OrderThings
 var orderSlipScene: PackedScene = preload("res://OrderSlip.tscn")
+var changeNeeded = false
+var order = Unlocks.random_order()
 
 signal back
 
@@ -18,9 +20,11 @@ func _ready():
 	$Control2.hide()
 
 func _process(delta):
-	pass
+	if visible and changeNeeded:
+		changeCustomer(order.text(),order)
 
 func changeCustomer(orderString,order):
+	changeNeeded=false
 	var currentCustomer = customers[randi() % customers.size()]
 	$Control2.show()
 	$Control3.hide()
@@ -38,8 +42,8 @@ func changeCustomer(orderString,order):
 	print(activeCustomers,activeOrders)
 
 func _on_customer_timer_timeout() -> void:
-	var order = Unlocks.random_order()
-	changeCustomer(order.text(),order)
+	order = Unlocks.random_order()
+	changeNeeded=true
 
 
 func _on_button_button_up() -> void:
@@ -63,6 +67,7 @@ func _on_cutting_back() -> void:
 func _on_shwarma_back() -> void:
 	$Control.show()
 	$Control3.show()
+	$Shwarma.hide()
 
 
 func _on_shwarma_station_button_up() -> void:

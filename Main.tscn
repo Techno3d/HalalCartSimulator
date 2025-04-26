@@ -99,6 +99,12 @@ animations = [{
 [node name="Cart" type="Node2D"]
 script = ExtResource("1_cm0pq")
 
+[node name="Cutting" parent="." instance=ExtResource("18_kjvhd")]
+visible = false
+
+[node name="Shwarma" parent="." instance=ExtResource("19_5tuhn")]
+visible = false
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -233,15 +239,9 @@ layout_mode = 2
 text = "Shwarma Station
 "
 
-[node name="Cutting" parent="." instance=ExtResource("18_kjvhd")]
-visible = false
-
-[node name="Shwarma" parent="." instance=ExtResource("19_5tuhn")]
-visible = false
-
+[connection signal="back" from="Cutting" to="." method="_on_cutting_back"]
+[connection signal="back" from="Shwarma" to="." method="_on_shwarma_back"]
 [connection signal="button_up" from="Control2/CenterContainer4/OkButton" to="." method="_on_button_button_up"]
 [connection signal="timeout" from="CustomerTimer" to="." method="_on_customer_timer_timeout"]
 [connection signal="button_up" from="Control3/CenterContainer/Cutting" to="." method="_on_cutting_button_up"]
 [connection signal="button_up" from="Control3/CenterContainer3/ShwarmaStation" to="." method="_on_shwarma_station_button_up"]
-[connection signal="back" from="Cutting" to="." method="_on_cutting_back"]
-[connection signal="back" from="Shwarma" to="." method="_on_shwarma_back"]

@@ -32,3 +32,7 @@ func _process(delta: float) -> void:
 	chicken_label.text = "%.2f oz" % [ManagementHr.oz_of_chicken]
 	falalfel_label.text = "%.2f oz" % [ManagementHr.oz_of_falalfel]
 	progress_bar.value = falafel_timer.time_left
+
+
+func _on_back_button_up() -> void:
+	back.emit()

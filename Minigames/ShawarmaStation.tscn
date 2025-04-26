@@ -223,3 +223,14 @@ texture_filter = 1
 position = Vector2(932, 622)
 scale = Vector2(8.6875, 8.6875)
 texture = ExtResource("6_2l53t")
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 262.0
+offset_top = 3.0
+offset_right = 307.0
+offset_bottom = 34.0
+text = "Back
+"
+
+[connection signal="button_up" from="Back" to="." method="_on_back_button_up"]
